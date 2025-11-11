@@ -10,6 +10,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Unauthorized from "./pages/Unauthorized";
 import CustomerDashboard from "./pages/customer/Dashboard";
+import CustomerVehicles from "./pages/customer/Vehicles";
+import CustomerVehicleDetail from "./pages/customer/VehicleDetail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -33,6 +35,22 @@ const App = () => (
               element={
                 <ProtectedRoute allowedRoles={["CUSTOMER"]}>
                   <CustomerDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/customer/vehicles"
+              element={
+                <ProtectedRoute allowedRoles={["CUSTOMER"]}>
+                  <CustomerVehicles />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/customer/vehicles/:id"
+              element={
+                <ProtectedRoute allowedRoles={["CUSTOMER"]}>
+                  <CustomerVehicleDetail />
                 </ProtectedRoute>
               }
             />
